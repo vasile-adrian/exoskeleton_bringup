@@ -1,0 +1,18 @@
+controller_manager:
+  ros__parameters:
+    update_rate: 1000 # 1 kHz execution loop matching physics timestep
+
+    joint_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster 
+
+    forward_effort_controller:
+      type: forward_effort_controller/ForwardEffortController 
+
+forward_effort_controller:
+  ros__parameters:
+    joints:
+      -hip_motor_joint_base
+      -support_hip_joint
+      -knee_joint
+      -ankle_joint
+    interface_name: effort
