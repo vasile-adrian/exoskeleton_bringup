@@ -15,7 +15,7 @@ def generate_launch_description():
     robot_description_content = Command([
         PathJoinSubstitution([FindExecutable(name="xacro")]),
         " ",
-        PathJoinSubstitution([FindPackageShare("exoskeleton_description"), "urdf", "exoskeleton.urdf.xacro"])
+        PathJoinSubstitution([FindPackageShare("exoskeleton_description"), "urdf", "urdf/exoskeleton_description.urdf.xacro"])
     ])
     robot_description = {"robot_description": robot_description_content}
 
@@ -36,7 +36,7 @@ def generate_launch_description():
             parameters=[
                 robot_description,
                 {
-                    "mujoco_model": os.path.join(pkg_description, "urdf", "test.xml"),
+                    "mujoco_model": os.path.join(pkg_description, "urdf", "mujoco/test.xml"),
                     "publish_tf": True
                 }
             ],
